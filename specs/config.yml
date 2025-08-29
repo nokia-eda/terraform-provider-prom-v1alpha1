@@ -1,0 +1,38 @@
+provider:
+  name: prom
+
+data_sources:
+  app_group:
+    read:
+      path: /apps/prom.eda.nokia.com
+      method: GET
+
+  export:
+    read:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+      method: GET
+
+  export_list:
+    read:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports
+      method: GET
+
+  resource_list:
+    read:
+      path: /apps/prom.eda.nokia.com/v1alpha1
+      method: GET
+
+resources:
+  export:
+    create:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports
+      method: POST
+    read:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+      method: GET
+    update:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+      method: PUT
+    delete:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+      method: DELETE
