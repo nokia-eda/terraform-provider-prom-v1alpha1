@@ -3,6 +3,16 @@ app_group:
       path: /apps/prom.eda.nokia.com
       method: GET
 
+intent_targets:
+  - read:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_targets
+      method: GET
+
+k8_s_topology_request:
+  - create:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_topology
+      method: POST
+
 patch:
   - update:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
@@ -57,31 +67,50 @@ com.nokia.eda.prom.v1alpha1.export_deleted_resources:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/_deleted
       method: GET
 
-totalPaths: 8
-totalSchemas: 33
-usedSchemas: 10
-unusedSchemas: 23
+totalPaths: 9
+totalSchemas: 54
+usedSchemas: 12
+unusedSchemas: 42
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
   - ErrorItem
   - ErrorResponse
+  - IntentTarget
   - K8SPatchOp
   - OverlayState
   - Resource
   - ResourceHistoryEntry
   - StatusDetails
   - TopoAttrMetadata
+  - TopoAttribute
+  - TopoBoolExpression
+  - TopoBoolLiteral
   - TopoElemMetadata
-  - TopoLinkEndpoint
+  - TopoEndpointBoolExpression
+  - TopoField
+  - TopoFixedBoolExpression
+  - TopoLabelSelector
+  - TopoLiteralStatusOrBadge
+  - TopoLiteralValue
+  - TopoLogicalExpression
   - TopoNodeGrouping
   - TopoOverlayEndpoint
   - TopoOverlayEndpointState
   - TopoOverlayLink
+  - TopoOverlayLinkGroup
+  - TopoOverlayLinkGroupEndpoint
   - TopoOverlayLinkState
   - TopoOverlayNode
+  - TopoOverlayNodeOrGroup
   - TopoOverlayNodeState
+  - TopoOverlayValue
   - TopoSchema
+  - TopoStateFilter
+  - TopoValue
+  - TopoValueExpression
   - Topology
   - com.nokia.eda.prom.v1alpha1.Export_DeletedResourceEntry
+  - com.nokia.eda.prom.v1alpha1.Export_alarms
+  - com.nokia.eda.prom.v1alpha1.Export_deviations
   - com.nokia.eda.prom.v1alpha1.Export_metadata
