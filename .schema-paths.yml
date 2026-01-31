@@ -13,11 +13,6 @@ k8_s_topology_request:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_topology
       method: POST
 
-patch:
-  - update:
-      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
-      method: PATCH
-
 resource_history:
   - read:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_revs
@@ -53,6 +48,9 @@ com.nokia.eda.prom.v1alpha1.export:
   - update:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
       method: PUT
+  - update:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+      method: PATCH
 
 com.nokia.eda.prom.v1alpha1.export_list:
   - read:
@@ -69,8 +67,8 @@ com.nokia.eda.prom.v1alpha1.export_deleted_resources:
 
 totalPaths: 9
 totalSchemas: 54
-usedSchemas: 12
-unusedSchemas: 42
+usedSchemas: 11
+unusedSchemas: 43
 unusedSchemaList:
   - AppGroupVersion
   - ErrorIndex
@@ -79,6 +77,7 @@ unusedSchemaList:
   - IntentTarget
   - K8SPatchOp
   - OverlayState
+  - Patch
   - Resource
   - ResourceHistoryEntry
   - StatusDetails

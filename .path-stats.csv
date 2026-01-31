@@ -8,7 +8,7 @@ Path,Method,Schema,Model Name,Supported,Datasource,Resource
 /apps/prom.eda.nokia.com/v1alpha1/exports/_deleted,GET,com.nokia.eda.prom.v1alpha1.Export_DeletedResources,,false,false,false
 /apps/prom.eda.nokia.com/v1alpha1/exports/{name},DELETE,Status,export,true,false,true
 /apps/prom.eda.nokia.com/v1alpha1/exports/{name},GET,com.nokia.eda.prom.v1alpha1.Export,export,true,true,true
-/apps/prom.eda.nokia.com/v1alpha1/exports/{name},PATCH,Patch,,false,false,false
+/apps/prom.eda.nokia.com/v1alpha1/exports/{name},PATCH,com.nokia.eda.prom.v1alpha1.Export,,false,false,false
 /apps/prom.eda.nokia.com/v1alpha1/exports/{name},PUT,com.nokia.eda.prom.v1alpha1.Export,export,true,false,true
 /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_revs,GET,ResourceHistory,,false,false,false
 /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_targets,GET,IntentTargets,,false,false,false
