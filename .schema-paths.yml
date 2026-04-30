@@ -23,6 +23,11 @@ resource_list:
       path: /apps/prom.eda.nokia.com/v1alpha1
       method: GET
 
+resource_topology:
+  - read:
+      path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_topology
+      method: GET
+
 status:
   - delete:
       path: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
@@ -61,11 +66,13 @@ com.nokia.eda.prom.v1alpha1.export_deleted_resources:
       method: GET
 
 totalPaths: 9
-totalSchemas: 52
-usedSchemas: 10
-unusedSchemas: 42
+totalSchemas: 54
+usedSchemas: 11
+unusedSchemas: 43
 unusedSchemaList:
   - AppGroupVersion
+  - ErrorIndex
+  - ErrorItem
   - ErrorResponse
   - IntentTarget
   - K8SPatchOp
@@ -73,7 +80,6 @@ unusedSchemaList:
   - Patch
   - Resource
   - ResourceHistoryEntry
-  - ResourceTopology
   - StatusDetails
   - TopoAttrMetadata
   - TopoAttribute
