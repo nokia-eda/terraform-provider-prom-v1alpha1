@@ -328,7 +328,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 						Description:         "Metric group, defines the collector the metrics belong to.",
 						MarkdownDescription: "Metric group, defines the collector the metrics belong to.",
 						Validators: []validator.String{
-							stringvalidator.RegexMatches(regexp.MustCompile("^[a-zA-Z0-9._~-]+$"), ""),
+							stringvalidator.RegexMatches(regexp.MustCompile("^[a-zA-Z0-9._~-]$|^[a-zA-Z0-9._~-][a-zA-Z0-9.~-]$|^[a-zA-Z0-9.~-][a-zA-Z0-9._~-]+$|^[a-zA-Z0-9._~-][a-zA-Z0-9.~-][a-zA-Z0-9._~-]+$"), ""),
 						},
 					},
 				},
