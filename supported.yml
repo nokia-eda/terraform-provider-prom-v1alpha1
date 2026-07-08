@@ -1,0 +1,30 @@
+datasources:
+  - model_name: app_group
+    oas_endpoint: /apps/prom.eda.nokia.com
+    oas_schema: AppGroup
+  - model_name: resource_list
+    oas_endpoint: /apps/prom.eda.nokia.com/v1alpha1
+    oas_schema: ResourceList
+  - model_name: export_list
+    oas_endpoint: /apps/prom.eda.nokia.com/v1alpha1/exports
+    oas_schema: com.nokia.eda.prom.v1alpha1.ExportList
+  - model_name: export
+    oas_endpoint: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}
+    oas_schema: com.nokia.eda.prom.v1alpha1.Export
+
+resources:
+  - model_name: export
+    oas_endpoint: /apps/prom.eda.nokia.com/v1alpha1/exports
+    oas_schema: com.nokia.eda.prom.v1alpha1.Export
+
+qualified:
+  datasources:
+    - oas_schema: IntentTargets
+      get: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_targets
+    - oas_schema: ResourceHistory
+      get: /apps/prom.eda.nokia.com/v1alpha1/exports/{name}/_revs
+    - oas_schema: UIResult
+      get: /apps/prom.eda.nokia.com/v1alpha1/_ui/{pathname}
+    - oas_schema: com.nokia.eda.prom.v1alpha1.Export_DeletedResources
+      get: /apps/prom.eda.nokia.com/v1alpha1/exports/_deleted
+  resources:
