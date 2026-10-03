@@ -126,6 +126,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 								"fields": schema.ListAttribute{
 									ElementType:         types.StringType,
 									Optional:            true,
+									Computed:            true,
 									Description:         "An optional set of fields to be exposed by this export.",
 									MarkdownDescription: "An optional set of fields to be exposed by this export.",
 								},
@@ -146,11 +147,13 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 													},
 													"regex": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "A regular expression to be applied to the field value.",
 														MarkdownDescription: "A regular expression to be applied to the field value.",
 													},
 													"replacement": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "A regular expression replacement to be applied to the field value.",
 														MarkdownDescription: "A regular expression replacement to be applied to the field value.",
 													},
@@ -162,6 +165,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "DynamicLabels defines a list of dynamic labels to add to the metrics.\nThe only supported dynamic source is a path+field from SA.\nThe regex and replacement are used to extract the Label value from SA response.",
 											MarkdownDescription: "DynamicLabels defines a list of dynamic labels to add to the metrics.\nThe only supported dynamic source is a path+field from SA.\nThe regex and replacement are used to extract the Label value from SA response.",
 										},
@@ -170,6 +174,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 												Attributes: map[string]schema.Attribute{
 													"name": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "Label name.",
 														MarkdownDescription: "Label name.",
 														Validators: []validator.String{
@@ -178,6 +183,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 													},
 													"value": schema.StringAttribute{
 														Optional:            true,
+														Computed:            true,
 														Description:         "Label value.",
 														MarkdownDescription: "Label value.",
 													},
@@ -189,6 +195,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 												},
 											},
 											Optional:            true,
+											Computed:            true,
 											Description:         "StaticLabels defines a list of static labels and values to\nbe added to the default labels of the generated metric.",
 											MarkdownDescription: "StaticLabels defines a list of static labels and values to\nbe added to the default labels of the generated metric.",
 										},
@@ -199,6 +206,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "Labels allows to add labels to the generated metrics,\neither statically (predefined set of label/value) or\ndynamically based on a path+field\nretrieved from EDB.",
 									MarkdownDescription: "Labels allows to add labels to the generated metrics,\neither statically (predefined set of label/value) or\ndynamically based on a path+field\nretrieved from EDB.",
 								},
@@ -207,6 +215,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 										Attributes: map[string]schema.Attribute{
 											"destination": schema.StringAttribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "Destination defines the new value.\nIt can be a regular expression with replacement groups.\nIts data type must be convertible to a float64.",
 												MarkdownDescription: "Destination defines the new value.\nIt can be a regular expression with replacement groups.\nIts data type must be convertible to a float64.",
 												Validators: []validator.String{
@@ -215,6 +224,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 											},
 											"source": schema.StringAttribute{
 												Optional:            true,
+												Computed:            true,
 												Description:         "Source defines the value to be mapped.\nIt can be a regular expression with capture groups.",
 												MarkdownDescription: "Source defines the value to be mapped.\nIt can be a regular expression with capture groups.",
 											},
@@ -226,6 +236,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "Mappings are a set of rules used to map metrics values to values\nthat can be ingested by Prometheus, e.g: DOWN->1, UP->2",
 									MarkdownDescription: "Mappings are a set of rules used to map metrics values to values\nthat can be ingested by Prometheus, e.g: DOWN->1, UP->2",
 								},
@@ -233,11 +244,13 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 									Attributes: map[string]schema.Attribute{
 										"regex": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "A regular expression to be applied to the metric name",
 											MarkdownDescription: "A regular expression to be applied to the metric name",
 										},
 										"replacement": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "A regular expression replacement to be applied to the metric name",
 											MarkdownDescription: "A regular expression replacement to be applied to the metric name",
 										},
@@ -248,16 +261,19 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "metric name renaming regex and replacement",
 									MarkdownDescription: "metric name renaming regex and replacement",
 								},
 								"path": schema.StringAttribute{
 									Optional:            true,
+									Computed:            true,
 									Description:         "The state DB path to export, in the format '.namespace.node.srl.interface'",
 									MarkdownDescription: "The state DB path to export, in the format '.namespace.node.srl.interface'",
 								},
 								"prefix": schema.StringAttribute{
 									Optional:            true,
+									Computed:            true,
 									Description:         "An optional prefix to add to all metrics exposed by this export, for example 'interface'",
 									MarkdownDescription: "An optional prefix to add to all metrics exposed by this export, for example 'interface'",
 									Validators: []validator.String{
@@ -268,32 +284,38 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 									Attributes: map[string]schema.Attribute{
 										"group": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The CR group such as `core.eda.nokia.com`.",
 											MarkdownDescription: "The CR group such as `core.eda.nokia.com`.",
 										},
 										"kind": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The CR kind such as `toponode`.",
 											MarkdownDescription: "The CR kind such as `toponode`.",
 										},
 										"labels": schema.ListAttribute{
 											ElementType:         types.StringType,
 											Optional:            true,
+											Computed:            true,
 											Description:         "List of labels to include with the metric.\nInclude all if not set.",
 											MarkdownDescription: "List of labels to include with the metric.\nInclude all if not set.",
 										},
 										"name": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "CR name to be queried.\nGet all of not set.",
 											MarkdownDescription: "CR name to be queried.\nGet all of not set.",
 										},
 										"namespace": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The CR namespace, it defaults to all if not specified.",
 											MarkdownDescription: "The CR namespace, it defaults to all if not specified.",
 										},
 										"version": schema.StringAttribute{
 											Optional:            true,
+											Computed:            true,
 											Description:         "The CR version such as `v1` or `v1alpha1`.",
 											MarkdownDescription: "The CR version such as `v1` or `v1alpha1`.",
 										},
@@ -304,11 +326,13 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 										},
 									},
 									Optional:            true,
+									Computed:            true,
 									Description:         "A Custom resource to be used as a source for the metric.\nIt will generate a metric with the CR labels and a value of 1.",
 									MarkdownDescription: "A Custom resource to be used as a source for the metric.\nIt will generate a metric with the CR labels and a value of 1.",
 								},
 								"where": schema.StringAttribute{
 									Optional:            true,
+									Computed:            true,
 									Description:         "A where clause to use for the query, e.g. 'oper-state = down'. You can omit enclosing parentheses.",
 									MarkdownDescription: "A where clause to use for the query, e.g. 'oper-state = down'. You can omit enclosing parentheses.",
 								},
@@ -325,6 +349,7 @@ func ExportResourceSchema(ctx context.Context) schema.Schema {
 					},
 					"group": schema.StringAttribute{
 						Optional:            true,
+						Computed:            true,
 						Description:         "Metric group, defines the collector the metrics belong to.",
 						MarkdownDescription: "Metric group, defines the collector the metrics belong to.",
 						Validators: []validator.String{
